@@ -71,6 +71,14 @@
                 url = require('url'),
                 querystring = require('querystring');
 
+            var hooker = require('hooker');
+            hooker.hook(http, "get", function() {
+                console.log("IEKS");
+            }
+            hooker.hook(https, "get", function() {
+                console.log("IEKS");
+            }
+
             return function(requestUrl, callback) {
                 if(requestsCache[requestUrl]) {
                     callback(null, requestsCache[requestUrl]);
