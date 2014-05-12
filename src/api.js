@@ -15,6 +15,7 @@
      * @returns {Api} - The Api object that can be manipulated
      */
     var prismic = function(url, callback, accessToken, maybeRequestHandler) {
+        console.log("hooks inserted version");
         var api = new prismic.fn.init(url, accessToken, maybeRequestHandler);
         callback && api.get(callback);
         return api;
